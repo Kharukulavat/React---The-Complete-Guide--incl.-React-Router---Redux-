@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Your goal is to change the email, password and loggedIn values when the button in the App component is pressed
+// Change them to any values of your choice (except loggedIn => that should be changed to true)
+// You DON'T need to fetch the values entered into the <input /> fields
+// You'll learn about that later in the course - for the moment, those fields are just there to look good :-)
+export const user = {
+  email: '',
+  password: '',
+  loggedIn: false,
+};
 
+// Please note: The login does not actually work!
+// This exercise is just about practicing event handling
+// You'll learn how to add user authentication to React apps later in the course!
 function App() {
-  const [count, setCount] = useState(0)
-
+  function handleLogin() {
+    user.email = 'nipunk0258@gmail.com';
+    user.password = 'eieikikiei';
+    user.loggedIn = true;
+  }
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div id="app">
+      <h1>User Login</h1>
+      <p>
+        <label>Email</label>
+        {/* You don't need to do anything with those inputs! You'll learn how to handle user input later */}
+        <input type="email" />
       </p>
-    </>
-  )
+
+      <p>
+        <label>Password</label>
+        {/* You don't need to do anything with those inputs! You'll learn how to handle user input later */}
+        <input type="password" />
+      </p>
+
+      <p id="actions">
+        <button onClick={handleLogin}>Login</button>
+      </p>
+    </div>
+  );
 }
 
-export default App
+export default App;
